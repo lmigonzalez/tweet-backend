@@ -16,7 +16,7 @@ const connection = createPool({
 const createUser = async (req, res) => {
   const { name, email, password } = req.body;
 
-  console.log(req.body);
+  console.log(req.body)
 
   try {
     const salt = await bcrypt.genSalt();
