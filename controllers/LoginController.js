@@ -25,7 +25,7 @@ const createUser = async (req, res) => {
     const result = await connection.execute(q, [name, email, hashedPassword]);
     res.status(201).json('user created!');
   } catch (err) {
-    console.log(err);
+
     res.status(500).json({
       err: 'Internal server error',
     });
