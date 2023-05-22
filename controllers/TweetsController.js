@@ -42,9 +42,10 @@ const getTimeLine = async (req, res) => {
 
 const addToTimeline = async (req, res) => {
   const { time, date, tweet } = req.body;
+  console.log(req.body);
   const q = `INSERT INTO timeline(time, date, tweet) VALUES (?, ?, ?)`;
   try {
-    const result = await connection.execute(q[(time, date, tweet)]);
+    const result = await connection.execute(q,[time, date, tweet]);
     res.status(201).json('tweet created!');
   } catch (err) {
     console.log(err);
